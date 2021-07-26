@@ -17,7 +17,7 @@ NET_D['merged_private'] = [
 ]
 
 NET_D['shared'] = [
-    ('conv3d', (256, (1, 4, 3), (1, 4, 2)), None, 'lrelu'),     # 0 (4, 4, 3)
+    ('conv3d', (128, (1, 4, 3), (1, 4, 2)), None, 'lrelu'),     # 0 (4, 4, 3)
     ('conv3d', (256, (1, 4, 3), (1, 4, 3)), None, 'lrelu'),     # 1 (4, 1, 1)
 ]
 
