@@ -3,8 +3,9 @@
 import os
 import time
 import numpy as np
-import tensorflow as tf
-import SharedArray as sa
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
+#import SharedArray as sa
 from musegan.bmusegan.components import Discriminator, Generator, Refiner
 from musegan.bmusegan.components import End2EndGenerator
 from musegan.utils.metrics import Metrics

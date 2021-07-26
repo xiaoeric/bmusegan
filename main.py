@@ -1,8 +1,9 @@
 """Main function
 """
 import numpy as np
-import tensorflow as tf
-import SharedArray as sa
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
+#import SharedArray as sa
 from musegan.bmusegan.models import GAN, RefineGAN, End2EndGAN
 from config import EXP_CONFIG, DATA_CONFIG, MODEL_CONFIG, TRAIN_CONFIG
 from config import TF_CONFIG
@@ -10,9 +11,10 @@ from config import TF_CONFIG
 def load_data():
     """Load and return the training data."""
     print('[*] Loading data...')
-    if DATA_CONFIG['training_data_location'] == 'sa':
-        x_train = sa.attach(DATA_CONFIG['training_data'])
-    elif DATA_CONFIG['training_data_location'] == 'hd':
+    #if DATA_CONFIG['training_data_location'] == 'sa':
+    #    x_train = sa.attach(DATA_CONFIG['training_data'])
+    #el
+    if DATA_CONFIG['training_data_location'] == 'hd':
         x_train = np.load(DATA_CONFIG['training_data'])
     x_train = x_train.reshape(
         -1, MODEL_CONFIG['num_bar'], MODEL_CONFIG['num_timestep'],

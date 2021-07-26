@@ -21,11 +21,12 @@ import shutil
 import distutils.dir_util
 import importlib
 import numpy as np
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
 
 # Quick setup
 SETUP = {
-    'exp_name': None,
+    'exp_name': "first",
     # The experiment name. Also the name of the folder that will be created
     # in './exp/' and all the experiment-related files are saved in that
     # folder. None to determine automatically. The automatically-
@@ -33,21 +34,21 @@ SETUP = {
     # dictionary `SETUP`, so remember to provide the experiment name manually
     # (so that you won't overwrite a trained model).
 
-    'training_data': 'lastfm_alternative_8b_phrase',
+    'training_data': 'training_data/fourtracks.npy',
     # Filename of the training data. The training data can be loaded from a npy
     # file in the hard disk or from the shared memory using SharedArray package.
     # Note that the data will be reshaped to (-1, num_bar, num_timestep,
     # num_pitch, num_track) and remember to set these variable to proper values,
     # which are defined in `MODEL_CONFIG`.
 
-    'training_data_location': 'sa',
+    'training_data_location': 'hd',
     # Location of the training data. 'hd' to load from a npy file stored in the
     # hard disk. 'sa' to load from shared array using SharedArray package.
 
     'gpu': '0',
     # The GPU index in os.environ['CUDA_VISIBLE_DEVICES'] to use.
 
-    'prefix': 'lastfm_alternative',
+    'prefix': '',
     # Prefix for the experiment name. Useful when training with different
     # training data to avoid replacing the previous experiment outputs.
 
@@ -227,18 +228,17 @@ MODEL_CONFIG = {
     'num_bar': None,
     'num_beat': 4,
     'num_pitch': 84,
-    'num_track': 8,
+    'num_track': 4,
     'num_timestep': 96,
     'beat_resolution': 24,
     'lowest_pitch': 24, # MIDI note number of the lowest pitch in data tensors
 
     # Tracks
     'track_names': (
-        'Drums', 'Piano', 'Guitar', 'Bass', 'Ensemble', 'Reed', 'Synth Lead',
-        'Synth Pad'
+        'Drums', 'Piano', 'Guitar', 'Bass'
     ),
-    'programs': (0, 0, 24, 32, 48, 64, 80, 88),
-    'is_drums': (True, False, False, False, False, False, False, False),
+    'programs': (0, 0, 0, 0),
+    'is_drums': (False, False, False, False),
 
     # Network architectures (define them here if not using the presets)
     'net_g': None,

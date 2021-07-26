@@ -2,7 +2,8 @@
 discriminator and the refiner.
 """
 from collections import OrderedDict
-import tensorflow as tf
+import tensorflow.compat.v1 as tf
+tf.disable_v2_behavior()
 from musegan.utils.neuralnet import NeuralNet
 
 class Component(object):

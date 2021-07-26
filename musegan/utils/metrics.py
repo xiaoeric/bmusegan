@@ -4,7 +4,7 @@ import os
 import warnings
 import numpy as np
 import matplotlib.pyplot as plt
-import SharedArray as sa
+#import SharedArray as sa
 
 def get_tonal_matrix(r1=1.0, r2=1.0, r3=0.5):
     """Compute and return a tonal matrix for computing the tonal distance [1].
