@@ -8,7 +8,7 @@ NET_D['pitch_time_private'] = [
 ]
 
 NET_D['time_pitch_private'] = [
-    ('conv3d', (32, (1, 3, 1), (1, 3, 1)), None, 'lrelu'),      # 0 (4, 16, 84)
+    ('conv3d', (32, (1, 6, 1), (1, 6, 1)), None, 'lrelu'),      # 0 (4, 16, 84)
     ('conv3d', (64, (1, 1, 12), (1, 1, 12)), None, 'lrelu'),    # 1 (4, 16, 7)
 ]
 
