@@ -16,14 +16,14 @@ NET_G['shared'] = [
 
 NET_G['pitch_time_private'] = [
     ('transconv3d', (64, (1, 1, 12), (1, 1, 12)), 'bn', 'relu'),# 0 (4, 16, 84)
-    ('transconv3d', (32, (1, 6, 1), (1, 6, 1)), 'bn', 'relu'),  # 1 (4, 96, 84)
+    ('transconv3d', (32, (1, 3, 1), (1, 3, 1)), 'bn', 'relu'),  # 1 (4, 48, 84)
 ]
 
 NET_G['time_pitch_private'] = [
-    ('transconv3d', (64, (1, 6, 1), (1, 6, 1)), 'bn', 'relu'),  # 0 (4, 96, 7)
-    ('transconv3d', (32, (1, 1, 12), (1, 1, 12)), 'bn', 'relu'),# 1 (4, 96, 84)
+    ('transconv3d', (64, (1, 3, 1), (1, 3, 1)), 'bn', 'relu'),  # 0 (4, 48, 7)
+    ('transconv3d', (32, (1, 1, 12), (1, 1, 12)), 'bn', 'relu'),# 1 (4, 48, 84)
 ]
 
 NET_G['merged_private'] = [
-    ('transconv3d', (1, (1, 1, 1), (1, 1, 1)), 'bn', 'sigmoid'),# 0 (4, 96, 84)
+    ('transconv3d', (1, (1, 1, 1), (1, 1, 1)), 'bn', 'sigmoid'),# 0 (4, 48, 84)
 ]
