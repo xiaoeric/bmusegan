@@ -229,7 +229,7 @@ MODEL_CONFIG = {
     'num_beat': 4,
     'num_pitch': 84,
     'num_track': 4,
-    'num_timestep': 96,
+    'num_timestep': 48,
     'beat_resolution': 24,
     'lowest_pitch': 24, # MIDI note number of the lowest pitch in data tensors
 
